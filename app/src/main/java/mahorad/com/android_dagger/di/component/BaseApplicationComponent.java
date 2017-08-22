@@ -18,8 +18,8 @@ import mahorad.com.android_dagger.di.module.ApplicationModule;
 @Singleton
 @Component(modules = {
         AndroidInjectionModule.class,
-        ActivityModule.class,
         ApplicationModule.class,
+        ActivityModule.class,
 })
 public interface BaseApplicationComponent {
 
