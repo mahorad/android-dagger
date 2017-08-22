@@ -5,7 +5,7 @@ import android.content.Context;
 import dagger.Module;
 import dagger.Provides;
 import mahorad.com.android_dagger.di.scope.PerActivity;
-import mahorad.com.android_dagger.util.MyActivityDependency;
+import mahorad.com.android_dagger.util.MyMasterActivityDependency;
 
 /**
  * Created by Mahan Rad on 2017-08-22.
@@ -21,7 +21,7 @@ public class MainActivityModule {
 
     @PerActivity
     @Provides
-    public MyActivityDependency myActivityDependency() {
-        return new MyActivityDependency();
+    public MyMasterActivityDependency myActivityDependency() {
+        return new MyMasterActivityDependency();
     }
 }

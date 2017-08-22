@@ -3,6 +3,8 @@ package mahorad.com.android_dagger.di.module;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import mahorad.com.android_dagger.di.scope.PerActivity;
+import mahorad.com.android_dagger.ui.detail.DetailActivity;
+import mahorad.com.android_dagger.ui.detail.DetailActivityModule;
 import mahorad.com.android_dagger.ui.master.MainActivity;
 import mahorad.com.android_dagger.ui.master.MainActivityModule;
 
@@ -15,6 +17,10 @@ public abstract class ActivityModule {
 
     @PerActivity
     @ContributesAndroidInjector(modules = MainActivityModule.class)
-    abstract MainActivity mainActivityInjector();
+    abstract MainActivity masterActivityInjector();
+
+    @PerActivity
+    @ContributesAndroidInjector(modules = DetailActivityModule.class)
+    abstract DetailActivity detailActivityInjector();
 
 }
