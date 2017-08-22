@@ -3,8 +3,8 @@ package mahorad.com.android_dagger.di.module;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import mahorad.com.android_dagger.di.scope.PerActivity;
-import mahorad.com.android_dagger.ui.MainActivity;
-import mahorad.com.android_dagger.ui.MainActivityModule;
+import mahorad.com.android_dagger.ui.master.MainActivity;
+import mahorad.com.android_dagger.ui.master.MainActivityModule;
 
 /**
  * Created by Mahan Rad on 2017-08-22.

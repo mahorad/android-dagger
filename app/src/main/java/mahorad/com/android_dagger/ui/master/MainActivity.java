@@ -1,4 +1,4 @@
-package mahorad.com.android_dagger.ui;
+package mahorad.com.android_dagger.ui.master;
 
 import android.content.Context;
 import android.os.Bundle;
