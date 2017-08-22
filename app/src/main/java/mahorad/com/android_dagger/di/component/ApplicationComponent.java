@@ -21,7 +21,7 @@ import mahorad.com.android_dagger.di.module.ApplicationModule;
         ApplicationModule.class,
         ActivityModule.class,
 })
-public interface BaseApplicationComponent {
+public interface ApplicationComponent {
 
     @Component.Builder
     interface Builder {
@@ -29,7 +29,7 @@ public interface BaseApplicationComponent {
         @BindsInstance
         Builder application(Application application);
 
-        BaseApplicationComponent build();
+        ApplicationComponent build();
     }
 
     void inject(BaseApplication app);

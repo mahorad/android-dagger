@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
-import mahorad.com.android_dagger.di.component.DaggerBaseApplicationComponent;
+import mahorad.com.android_dagger.di.component.DaggerApplicationComponent;
 import timber.log.Timber;
 
 /**
@@ -30,7 +30,7 @@ public class BaseApplication extends Application
     }
 
     private void injectDependencies() {
-        DaggerBaseApplicationComponent
+        DaggerApplicationComponent
                 .builder()
                 .application(this)
                 .build()
