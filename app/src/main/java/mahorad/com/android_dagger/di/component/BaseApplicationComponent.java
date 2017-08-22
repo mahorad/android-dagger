@@ -19,7 +19,7 @@ import mahorad.com.android_dagger.di.module.ApplicationModule;
 @Component(modules = {
         AndroidInjectionModule.class,
         ActivityModule.class,
-        ApplicationModule.class
+        ApplicationModule.class,
 })
 public interface BaseApplicationComponent {
 

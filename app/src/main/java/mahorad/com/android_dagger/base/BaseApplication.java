@@ -12,7 +12,7 @@ import mahorad.com.android_dagger.di.component.DaggerBaseApplicationComponent;
 import timber.log.Timber;
 
 /**
- * Created by mahan on 2017-08-22.
+ * Created by Mahan Rad on 2017-08-22.
  */
 
 public class BaseApplication extends Application
