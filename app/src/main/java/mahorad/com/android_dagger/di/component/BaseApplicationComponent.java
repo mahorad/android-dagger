@@ -9,6 +9,7 @@ import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 import mahorad.com.android_dagger.base.BaseApplication;
 import mahorad.com.android_dagger.di.module.ActivityModule;
+import mahorad.com.android_dagger.di.module.ApplicationModule;
 
 /**
  * Created by Mahan Rad on 2017-08-22.
@@ -18,6 +19,7 @@ import mahorad.com.android_dagger.di.module.ActivityModule;
 @Component(modules = {
         AndroidInjectionModule.class,
         ActivityModule.class,
+        ApplicationModule.class
 })
 public interface BaseApplicationComponent {
 

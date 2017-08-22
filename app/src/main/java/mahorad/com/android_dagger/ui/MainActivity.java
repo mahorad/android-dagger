@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjection;
 import mahorad.com.android_dagger.R;
 import mahorad.com.android_dagger.util.MyActivityDependency;
+import mahorad.com.android_dagger.util.MyApplicationSingleton;
 import timber.log.Timber;
 
 /**
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     MyActivityDependency myActivityDependency;
 
+    @Inject
+    MyApplicationSingleton myApplicationSingleton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AndroidInjection.inject(this);
@@ -30,5 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Timber.tag(TAG).d("===========================================================");
         Timber.tag(TAG).d("myActivityDependency %d", myActivityDependency.getHashCode());
 
+        Timber.tag(TAG).d("===========================================================");
+        for (int i = 0; i < 5; i++) {
+            Timber.tag(TAG).d("myActivitySingleton %d", myApplicationSingleton.getHashCode());
+        }
     }
 }
