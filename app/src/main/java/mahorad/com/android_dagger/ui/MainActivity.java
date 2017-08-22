@@ -1,7 +1,9 @@
-package mahorad.com.android_dagger;
+package mahorad.com.android_dagger.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import mahorad.com.android_dagger.R;
 
 public class MainActivity extends AppCompatActivity {
 
