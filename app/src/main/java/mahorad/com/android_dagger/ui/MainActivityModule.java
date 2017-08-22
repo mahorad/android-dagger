@@ -1,5 +1,7 @@
 package mahorad.com.android_dagger.ui;
 
+import android.content.Context;
+
 import dagger.Module;
 import dagger.Provides;
 import mahorad.com.android_dagger.di.scope.PerActivity;
@@ -11,6 +13,11 @@ import mahorad.com.android_dagger.util.MyActivityDependency;
 
 @Module
 public class MainActivityModule {
+
+    @Provides
+    public Context context(MainActivity activity) {
+        return activity.getBaseContext();
+    }
 
     @PerActivity
     @Provides
