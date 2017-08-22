@@ -2,6 +2,7 @@ package mahorad.com.android_dagger.ui;
 
 import dagger.Module;
 import dagger.Provides;
+import mahorad.com.android_dagger.di.scope.PerActivity;
 import mahorad.com.android_dagger.util.MyActivityDependency;
 
 /**
@@ -11,6 +12,7 @@ import mahorad.com.android_dagger.util.MyActivityDependency;
 @Module
 public class MainActivityModule {
 
+    @PerActivity
     @Provides
     public MyActivityDependency myActivityDependency() {
         return new MyActivityDependency();
