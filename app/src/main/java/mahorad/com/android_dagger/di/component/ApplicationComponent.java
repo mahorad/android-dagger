@@ -6,9 +6,8 @@ import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
-import dagger.android.AndroidInjectionModule;
 import mahorad.com.android_dagger.base.BaseApplication;
-import mahorad.com.android_dagger.di.module.ActivityModule;
+import mahorad.com.android_dagger.di.module.ActivityInjectorsModule;
 import mahorad.com.android_dagger.di.module.ApplicationModule;
 
 /**
@@ -16,12 +15,13 @@ import mahorad.com.android_dagger.di.module.ApplicationModule;
  */
 
 @Singleton
-@Component(modules = {
-        AndroidInjectionModule.class,
-        ApplicationModule.class,
-        ActivityModule.class,
-})
+@Component(modules = { ApplicationModule.class, ActivityInjectorsModule.class, })
 public interface ApplicationComponent {
+
+//    @Component.Builder
+//    abstract class Builder extends AndroidInjector.Builder<BaseApplication> {
+//    }
+
 
     @Component.Builder
     interface Builder {

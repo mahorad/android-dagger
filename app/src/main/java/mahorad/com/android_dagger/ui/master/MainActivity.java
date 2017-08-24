@@ -31,8 +31,8 @@ public class MainActivity extends BaseActivity {
     @ApplicationContext
     Context applicationContext;
 
-    @Inject
-    Context activityContext;
+//    @Inject
+//    Context activityContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity {
         Timber.tag(TAG).d("applicationContext   %d", applicationContext.hashCode());
         Timber.tag(TAG).d("Application.Context  %d", getApplication().getBaseContext().hashCode());
         Timber.tag(TAG).d("===========================================================");
-        Timber.tag(TAG).d("activityContext      %d", activityContext.hashCode());
+//        Timber.tag(TAG).d("activityContext      %d", activityContext.hashCode());
         Timber.tag(TAG).d("Activity.Context     %d", getBaseContext().hashCode());
 
         Timber.tag(TAG).d("===========================================================");

@@ -5,6 +5,7 @@ import android.content.Context;
 
 import javax.inject.Singleton;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
@@ -15,17 +16,15 @@ import mahorad.com.android_dagger.util.MyApplicationSingleton;
  */
 
 @Module
-public class ApplicationModule {
+public abstract class ApplicationModule {
 
+    @Binds
     @ApplicationContext
-    @Provides
-    public Context context(Application application) {
-        return application.getBaseContext();
-    }
+    abstract Context context(Application application);
 
-    @Singleton
     @Provides
-    public MyApplicationSingleton myApplicationSingleton() {
+    @Singleton
+    public static MyApplicationSingleton myApplicationSingleton() {
         return new MyApplicationSingleton();
     }
 
