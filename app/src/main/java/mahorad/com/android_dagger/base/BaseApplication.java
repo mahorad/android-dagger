@@ -2,12 +2,14 @@ package mahorad.com.android_dagger.base;
 
 import android.app.Activity;
 import android.app.Application;
+import android.app.Service;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
+import dagger.android.HasServiceInjector;
 import mahorad.com.android_dagger.di.component.DaggerApplicationComponent;
 import timber.log.Timber;
 
@@ -16,10 +18,13 @@ import timber.log.Timber;
  */
 
 public class BaseApplication extends Application
-        implements HasActivityInjector {
+        implements HasActivityInjector, HasServiceInjector {
 
     @Inject
     DispatchingAndroidInjector<Activity> activityInjector;
+
+    @Inject
+    DispatchingAndroidInjector<Service> serviceInjector;
 
     @Override
     public void onCreate() {
@@ -36,8 +41,14 @@ public class BaseApplication extends Application
                 .build()
                 .inject(this);
     }
+
     @Override
     public AndroidInjector<Activity> activityInjector() {
         return activityInjector;
+    }
+
+    @Override
+    public AndroidInjector<Service> serviceInjector() {
+        return serviceInjector;
     }
 }

@@ -1,6 +1,7 @@
 package mahorad.com.android_dagger.ui.master;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,6 +10,7 @@ import javax.inject.Inject;
 import mahorad.com.android_dagger.R;
 import mahorad.com.android_dagger.base.BaseActivity;
 import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
+import mahorad.com.android_dagger.service.SomeService;
 import mahorad.com.android_dagger.util.MyCommonActivityDependency;
 import mahorad.com.android_dagger.util.MyMasterActivityDependency;
 import mahorad.com.android_dagger.util.MyAppSingletonDependency;
@@ -75,5 +77,10 @@ public class MainActivity extends BaseActivity {
 
     public void toDetail(View view) {
         navigator.toDetail(getBaseContext());
+    }
+
+    public void startService(View view) {
+        Intent intent = new Intent(this, SomeService.class);
+        startService(intent);
     }
 }
