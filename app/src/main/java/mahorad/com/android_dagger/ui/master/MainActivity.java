@@ -9,8 +9,9 @@ import javax.inject.Inject;
 import mahorad.com.android_dagger.R;
 import mahorad.com.android_dagger.base.BaseActivity;
 import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
+import mahorad.com.android_dagger.util.MyCommonActivityDependency;
 import mahorad.com.android_dagger.util.MyMasterActivityDependency;
-import mahorad.com.android_dagger.util.MyApplicationSingleton;
+import mahorad.com.android_dagger.util.MyAppSingletonDependency;
 import timber.log.Timber;
 
 /**
@@ -22,36 +23,54 @@ public class MainActivity extends BaseActivity {
     private static final String TAG = "DaggerDependencyInjection";
 
     @Inject
-    MyMasterActivityDependency myActivityDependency;
-
-    @Inject
-    MyApplicationSingleton myApplicationSingleton;
-
-    @Inject
     @ApplicationContext
     Context applicationContext;
 
-//    @Inject
-//    Context activityContext;
+    @Inject
+    MyAppSingletonDependency mySingletonDependency;
+
+    @Inject
+    Context activityContext;
+
+    @Inject
+    MyCommonActivityDependency myCommonActivityDependency;
+
+    @Inject
+    MyMasterActivityDependency myActivityDependency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_master);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        printDependencies();
+
+    }
+
+    private void printDependencies() {
+        Timber.tag(TAG).d(".");
         Timber.tag(TAG).d("====================== MASTER ACTIVITY ====================");
-        Timber.tag(TAG).d("myActivityDependency %d", myActivityDependency.getHashCode());
-        Timber.tag(TAG).d("===========================================================");
         Timber.tag(TAG).d("applicationContext   %d", applicationContext.hashCode());
-        Timber.tag(TAG).d("Application.Context  %d", getApplication().getBaseContext().hashCode());
+        Timber.tag(TAG).d("Application.Context  %d", getApplication().getApplicationContext().hashCode());
         Timber.tag(TAG).d("===========================================================");
-//        Timber.tag(TAG).d("activityContext      %d", activityContext.hashCode());
+        Timber.tag(TAG).d("myAppSingletonDependency  %d", mySingletonDependency.getHashCode());
+        Timber.tag(TAG).d("===========================================================");
+        Timber.tag(TAG).d("activityContext      %d", activityContext.hashCode());
         Timber.tag(TAG).d("Activity.Context     %d", getBaseContext().hashCode());
-
         Timber.tag(TAG).d("===========================================================");
-        for (int i = 0; i < 5; i++) {
-            Timber.tag(TAG).d("myActivitySingleton  %d", myApplicationSingleton.getHashCode());
-        }
+        Timber.tag(TAG).d("myCommonActivitiesDependency %d", myCommonActivityDependency.getHashCode());
+        Timber.tag(TAG).d("===========================================================");
+        Timber.tag(TAG).d("myActivityDependency %d", myActivityDependency.getHashCode());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Timber.tag(TAG).d("========================= MASTER DESTROYED =======================");
     }
 
     public void toDetail(View view) {

@@ -9,7 +9,7 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
-import mahorad.com.android_dagger.util.MyApplicationSingleton;
+import mahorad.com.android_dagger.util.MyAppSingletonDependency;
 
 /**
  * Created by Mahan Rad on 2017-08-22.
@@ -24,8 +24,8 @@ public abstract class ApplicationModule {
 
     @Provides
     @Singleton
-    public static MyApplicationSingleton myApplicationSingleton() {
-        return new MyApplicationSingleton();
+    static MyAppSingletonDependency myApplicationSingleton() {
+        return new MyAppSingletonDependency();
     }
 
 

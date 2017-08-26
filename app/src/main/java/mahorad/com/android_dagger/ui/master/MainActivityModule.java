@@ -2,10 +2,8 @@ package mahorad.com.android_dagger.ui.master;
 
 import android.content.Context;
 
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import mahorad.com.android_dagger.base.BaseActivity;
 import mahorad.com.android_dagger.di.module.BaseActivityModule;
 import mahorad.com.android_dagger.di.scope.PerActivity;
 import mahorad.com.android_dagger.util.MyMasterActivityDependency;
@@ -17,14 +15,15 @@ import mahorad.com.android_dagger.util.MyMasterActivityDependency;
 @Module(includes = BaseActivityModule.class)
 public abstract class MainActivityModule {
 
-//    @Provides
-//    public Context context(MainActivity activity) {
-//        return activity.getBaseContext();
-//    }
+    @Provides
+    static Context context(MainActivity activity) {
+        return activity.getBaseContext();
+    }
 
     @Provides
     @PerActivity
     static MyMasterActivityDependency myActivityDependency() {
         return new MyMasterActivityDependency();
     }
+
 }
