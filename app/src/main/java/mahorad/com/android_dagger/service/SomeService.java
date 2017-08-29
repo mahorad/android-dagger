@@ -7,10 +7,14 @@ import android.support.annotation.Nullable;
 
 import javax.inject.Inject;
 
+import mahorad.com.android_dagger.base.BaseApplication;
 import mahorad.com.android_dagger.base.BaseService;
 import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
-import mahorad.com.android_dagger.util.MyServiceDependency;
 import mahorad.com.android_dagger.util.A;
+import mahorad.com.android_dagger.util.B;
+import mahorad.com.android_dagger.util.C;
+import mahorad.com.android_dagger.util.MyServiceDependency;
+import mahorad.com.android_dagger.util.X;
 import timber.log.Timber;
 
 /**
@@ -35,7 +39,10 @@ public class SomeService extends BaseService {
     MyServiceDependency myServiceDependency;
 
     @Inject
-    A a;
+//    A object; // can instantiate A, can instantiate and inject the dependency
+    B object; // cannot instantiate B, need to inject by requesting component
+//    C object; // will inject constructor argument dependencies
+//    X object; // can instantiate X, no injectable dependencies
 
     @Override
     public void onCreate() {
@@ -43,6 +50,6 @@ public class SomeService extends BaseService {
         Timber.tag(TAG).d("SERVICE: applicationContext   %d", applicationContext.hashCode());
         Timber.tag(TAG).d("SERVICE: serviceDependency    %d", myServiceDependency.hashCode());
         Timber.tag(TAG).d("===========================================================");
-        a.invoke();
+        object.invoke();
     }
 }

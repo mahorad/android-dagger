@@ -2,6 +2,7 @@ package mahorad.com.android_dagger.util;
 
 import javax.inject.Inject;
 
+import mahorad.com.android_dagger.base.BaseApplication;
 import timber.log.Timber;
 
 /**
@@ -12,15 +13,21 @@ public class B {
 
     private static final String TAG = "DaggerDependencyInjection";
 
-    @Inject
-    C c;
+    /**
+     * @Inject-annotated fields without @Inject-annotated constructor indicate
+     * Dagger cannot instantiate but will inject dependencies if requested from component.
+     */
 
     @Inject
-    public B() {}
+    Y y;
+
+    public B() {
+        BaseApplication.component().inject(this);
+    }
 
     public void invoke() {
-        Timber.tag(TAG).d("c   %s", System.identityHashCode(c));
-        c.invoke();
+        Timber.tag(TAG).d("y   %s", System.identityHashCode(y));
+        y.invoke();
     }
 
 }

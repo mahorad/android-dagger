@@ -9,6 +9,7 @@ import dagger.Component;
 import mahorad.com.android_dagger.base.BaseApplication;
 import mahorad.com.android_dagger.di.module.InjectorsModule;
 import mahorad.com.android_dagger.di.module.ApplicationModule;
+import mahorad.com.android_dagger.util.B;
 
 /**
  * Created by Mahan Rad on 2017-08-22.
@@ -17,10 +18,6 @@ import mahorad.com.android_dagger.di.module.ApplicationModule;
 @Singleton
 @Component(modules = { ApplicationModule.class, InjectorsModule.class, })
 public interface ApplicationComponent {
-
-//    @Component.Builder
-//    abstract class Builder extends AndroidInjector.Builder<BaseApplication> {
-//    }
 
     @Component.Builder
     interface Builder {
@@ -33,4 +30,5 @@ public interface ApplicationComponent {
 
     void inject(BaseApplication app);
 
+    void inject(B b);
 }
