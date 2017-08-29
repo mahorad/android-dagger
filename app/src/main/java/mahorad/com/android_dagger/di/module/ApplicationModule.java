@@ -31,9 +31,9 @@ public abstract class ApplicationModule {
         return new MyAppSingletonDependency();
     }
 
-    @Singleton
-    @Provides
-    static A provideA() {
-        return new A();
-    }
+//    @Singleton
+//    @Provides
+//    static A provideA() {
+//        return new A();
+//    }
 }

@@ -16,7 +16,7 @@ public class C {
     public C() {}
 
     public void invoke() {
-        Timber.tag(TAG).d("singleton C is instantiated");
+        Timber.tag(TAG).d("C is instantiated");
         Timber.tag(TAG).d("===========================================================");
     }
 
