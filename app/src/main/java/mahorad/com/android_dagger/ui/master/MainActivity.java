@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         printDependencies();
-
+        startService();
     }
 
     private void printDependencies() {
@@ -67,6 +67,7 @@ public class MainActivity extends BaseActivity {
         Timber.tag(TAG).d("myCommonActivitiesDependency %d", myCommonActivityDependency.getHashCode());
         Timber.tag(TAG).d("===========================================================");
         Timber.tag(TAG).d("myActivityDependency %d", myActivityDependency.getHashCode());
+        Timber.tag(TAG).d("===========================================================");
     }
 
     @Override
@@ -79,7 +80,7 @@ public class MainActivity extends BaseActivity {
         navigator.toDetail(getBaseContext());
     }
 
-    public void startService(View view) {
+    public void startService() {
         Intent intent = new Intent(this, SomeService.class);
         startService(intent);
     }

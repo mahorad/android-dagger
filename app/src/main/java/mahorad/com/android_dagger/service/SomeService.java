@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import mahorad.com.android_dagger.base.BaseService;
 import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
 import mahorad.com.android_dagger.util.MyServiceDependency;
+import mahorad.com.android_dagger.util.A;
 import timber.log.Timber;
 
 /**
@@ -33,10 +34,15 @@ public class SomeService extends BaseService {
     @Inject
     MyServiceDependency myServiceDependency;
 
+    @Inject
+    A a;
+
     @Override
     public void onCreate() {
         super.onCreate();
-        Timber.tag(TAG).d("applicationContext   %d", applicationContext.hashCode());
-        Timber.tag(TAG).d("serviceDependency    %d", myServiceDependency.hashCode());
+        Timber.tag(TAG).d("SERVICE: applicationContext   %d", applicationContext.hashCode());
+        Timber.tag(TAG).d("SERVICE: serviceDependency    %d", myServiceDependency.hashCode());
+        Timber.tag(TAG).d("===========================================================");
+        a.invoke();
     }
 }
