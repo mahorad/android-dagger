@@ -36,13 +36,13 @@ public class SomeService extends BaseService {
     MyServiceDependency myServiceDependency;
 
     @Inject
-//    A dependency; // can instantiate A, can instantiate and inject the dependency
-    B dependency; // cannot instantiate B, need to inject by requesting component
-//    C dependency; // will inject constructor argument dependencies
-//    X dependency; // can instantiate X, no injectable dependencies
+//    A normalDependency; // can instantiate A, can instantiate and inject the normalDependency
+    B normalDependency; // cannot instantiate B, need to inject by requesting component
+//    C normalDependency; // will inject constructor argument dependencies
+//    X normalDependency; // can instantiate X, no injectable dependencies
 
     @Inject
-    O o;
+    O cyclicDependency;
 
     @Override
     public void onCreate() {
@@ -50,6 +50,7 @@ public class SomeService extends BaseService {
         Timber.tag(TAG).d("SERVICE: applicationContext   %d", applicationContext.hashCode());
         Timber.tag(TAG).d("SERVICE: serviceDependency    %d", myServiceDependency.hashCode());
         Timber.tag(TAG).d("===========================================================");
-        dependency.invoke();
+        normalDependency.invoke();
+        cyclicDependency.invoke();
     }
 }
