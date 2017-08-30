@@ -2,7 +2,8 @@ package mahorad.com.android_dagger.util;
 
 import javax.inject.Inject;
 
-import mahorad.com.android_dagger.base.BaseApplication;
+import mahorad.com.android_dagger.di.component.DaggerServiceComponent;
+import mahorad.com.android_dagger.di.module.BaseServiceModule;
 import timber.log.Timber;
 
 /**
@@ -19,9 +20,18 @@ public class O {
     public O() {}
 
     public void invoke() {
-        BaseApplication.component().inject(this);
+        injectDependencies();
         Timber.tag(TAG).d("q   %s", System.identityHashCode(q));
         q.invoke();
+    }
+
+    private void injectDependencies() {
+        if (q != null) return;
+        DaggerServiceComponent
+                .builder()
+                .baseServiceModule(new BaseServiceModule())
+                .build()
+                .inject(this);
     }
 
 }

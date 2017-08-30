@@ -11,7 +11,6 @@ import dagger.Provides;
 import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
 import mahorad.com.android_dagger.util.B;
 import mahorad.com.android_dagger.util.MyAppSingletonDependency;
-import mahorad.com.android_dagger.util.O;
 
 /**
  * Created by Mahan Rad on 2017-08-22.
@@ -38,16 +37,6 @@ public abstract class ApplicationModule {
     @Provides
     static B provideB() {
         return new B();
-    }
-
-    /*
-       required since
-       O and Q have circular dependencies.
-    */
-    @Singleton
-    @Provides
-    static O providesO() {
-        return new O();
     }
 
 }
