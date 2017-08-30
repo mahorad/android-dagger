@@ -1,6 +1,7 @@
 package mahorad.com.android_dagger.di.component;
 
 import android.app.Application;
+import android.content.Context;
 
 import javax.inject.Singleton;
 
@@ -9,7 +10,9 @@ import dagger.Component;
 import mahorad.com.android_dagger.base.BaseApplication;
 import mahorad.com.android_dagger.di.module.ApplicationModule;
 import mahorad.com.android_dagger.di.module.InjectorsModule;
+import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
 import mahorad.com.android_dagger.util.B;
+import mahorad.com.android_dagger.util.MyAppSingletonDependency;
 
 /**
  * Created by Mahan Rad on 2017-08-22.
@@ -31,5 +34,10 @@ public interface ApplicationComponent {
     void inject(BaseApplication baseApplication);
 
     void inject(B b);
+
+    MyAppSingletonDependency singleton();
+
+    @ApplicationContext
+    Context context();
 
 }

@@ -3,6 +3,7 @@ package mahorad.com.android_dagger.di.component;
 import dagger.Component;
 import mahorad.com.android_dagger.di.module.BaseServiceModule;
 import mahorad.com.android_dagger.di.scope.PerService;
+import mahorad.com.android_dagger.util.MyAppSingletonDependency;
 import mahorad.com.android_dagger.util.O;
 
 /**
@@ -10,7 +11,7 @@ import mahorad.com.android_dagger.util.O;
  */
 
 @PerService
-@Component(modules = BaseServiceModule.class)
+@Component(modules = BaseServiceModule.class, dependencies = ApplicationComponent.class)
 public interface ServiceComponent {
 
     void inject(O o);

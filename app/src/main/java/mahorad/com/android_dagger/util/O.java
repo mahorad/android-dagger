@@ -1,9 +1,12 @@
 package mahorad.com.android_dagger.util;
 
+import android.content.Context;
+
 import javax.inject.Inject;
 
 import mahorad.com.android_dagger.di.component.DaggerServiceComponent;
 import mahorad.com.android_dagger.di.module.BaseServiceModule;
+import mahorad.com.android_dagger.di.qualifier.ApplicationContext;
 import timber.log.Timber;
 
 /**
@@ -13,6 +16,13 @@ import timber.log.Timber;
 public class O {
 
     private static final String TAG = "DaggerDependencyInjection";
+
+    @Inject
+    MyAppSingletonDependency singleton;
+
+    @Inject
+    @ApplicationContext
+    Context context;
 
     @Inject
     Q q;
