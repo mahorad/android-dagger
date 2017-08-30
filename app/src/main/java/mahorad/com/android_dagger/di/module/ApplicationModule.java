@@ -29,6 +29,10 @@ public abstract class ApplicationModule {
         return new MyAppSingletonDependency();
     }
 
+    /*
+       the following definition is required since
+       B lacks an @Inject-annotated constructor.
+    */
     @Singleton
     @Provides
     static B provideB() {
